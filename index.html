@@ -1,104 +1,56 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Báo Cáo Tiến Độ Học JavaScript</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-            background-color: #2e7d32;
-            color: #ffffff;
-        }
-
-        h1 {
-            color: #ffffff;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background-color: #ffffff;
-            color: #000000;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        pre {
-            background-color: #f4f4f4;
-            color: #333333;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-
-        ul {
-            list-style-type: square;
-        }
-
-        button {
-            background-color: #2e7d32;
-            color: #ffffff;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #1b5e20;
-            color: #ffffff;
-        }
-
-        .student-info {
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        a {
-            color: #2e7d32;
-        }
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; background-color: #2e7d32; color: #ffffff; }
+        h1 { text-align: center; }
+        .container { max-width: 800px; margin: auto; background-color: #ffffff; color: #000000; padding: 20px; border-radius: 10px; }
+        ul { list-style-type: none; padding: 0; }
+        li { cursor: pointer; padding: 8px; border-radius: 5px; }
+        li:hover { background-color: #e0e0e0; }
+        .submenu { display: none; padding-left: 20px; }
+        .content { display: none; padding: 10px; border-top: 1px solid #ccc; }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h1>BÁO CÁO TIẾN ĐỘ HỌC JAVASCRIPT</h1>
-        <div class="student-info">
-            <p><strong>Sinh viên: Nguyễn Xuân Lộc (MSSV: 22520793)</strong></p>
-            <p style="margin-left: 20px;">Dương Hiển Gia Khang (MSSV: 22520610)</p>
-        </div>
-        <h2>Các công nghệ JavaScript đã học:</h2>
+        <h2>Mục lục</h2>
         <ul>
-            <li>Biến và kiểu dữ liệu (let, const, var)</li>
-            <li>Hàm (function, arrow function)</li>
-            <li>DOM Manipulation</li>
-            <li>Sự kiện (Event Listener)</li>
-            <li>ES6+ (Destructuring, Spread, Modules)</li>
-            <li>Async/Await và Fetch API</li>
-            <li>LocalStorage & SessionStorage</li>
-            <li>Web APIs (Canvas, Fetch, Geolocation)</li>
-            <li>React Basics</li>
+            <li onclick="toggleSubmenu('js-basics')">JS Cơ Bản
+                <ul id="js-basics" class="submenu">
+                    <li onclick="showContent('intro')">Giới Thiệu</li>
+                    <li onclick="showContent('variables')">Biến và Kiểu dữ liệu</li>
+                    <li onclick="showContent('functions')">Hàm</li>
+                </ul>
+            </li>
+            <li onclick="toggleSubmenu('js-dom')">JS HTML DOM
+                <ul id="js-dom" class="submenu">
+                    <li onclick="showContent('dom-intro')">DOM Giới thiệu</li>
+                    <li onclick="showContent('dom-methods')">DOM Methods</li>
+                </ul>
+            </li>
         </ul>
-        <h2>Ví dụ JavaScript:</h2>
-        <pre>
-// Tạo nút bấm và thêm vào trang
-document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.createElement("button");
-    btn.textContent = "Bấm vào tôi";
-    btn.onclick = () => alert("Bạn đã bấm nút!");
-    document.body.appendChild(btn);
-});
-        </pre>
-        <h2>Liên kết GitHub Pages:</h2>
-        <p>Trang web sẽ được triển khai tại: <a href="#">[Link GitHub Pages]</a></p>
+        
+        <div id="intro" class="content"><h3>Giới Thiệu JavaScript</h3><p>JavaScript là một ngôn ngữ lập trình cho web.</p></div>
+        <div id="variables" class="content"><h3>Biến và Kiểu Dữ Liệu</h3><p>Trong JavaScript, bạn có thể khai báo biến bằng var, let hoặc const.</p></div>
+        <div id="functions" class="content"><h3>Hàm</h3><p>Hàm giúp bạn tổ chức mã lệnh và tái sử dụng.</p></div>
+        <div id="dom-intro" class="content"><h3>DOM Giới thiệu</h3><p>DOM giúp JavaScript tương tác với nội dung HTML.</p></div>
+        <div id="dom-methods" class="content"><h3>DOM Methods</h3><p>DOM có nhiều phương thức để truy cập và thay đổi HTML.</p></div>
     </div>
+    
+    <script>
+        function toggleSubmenu(id) {
+            var submenu = document.getElementById(id);
+            submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        }
+        function showContent(id) {
+            document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
 </body>
-
 </html>
