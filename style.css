@@ -1,0 +1,119 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /* Để tránh float gây tràn */
+}
+
+nav {
+    width: 250px;
+    background-color: #f0f0f0;
+    padding: 1rem;
+    box-sizing: border-box;
+    /* Quan trọng để padding không làm tăng chiều rộng */
+}
+
+main {
+    flex: 1;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Style cho menu */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    margin-bottom: 0.5rem;
+}
+
+.nav-list a {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: #333;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.nav-list a:hover {
+    background-color: #ddd;
+}
+
+/* Style cho submenu (ẩn ban đầu) */
+.sub-menu {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0;
+    display: none;
+    /* Ẩn submenu mặc định */
+    background-color: #eee;
+    border-radius: 3px;
+    margin-top: 0.5rem;
+}
+
+.sub-menu li {
+    margin-bottom: 0.25rem;
+}
+
+.sub-menu a {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Style cho các section */
+section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Đánh dấu các phần đã hoàn thành */
+section.completed {
+    background-color: #e6ffe6;
+    /* Màu xanh lá cây nhạt */
+    border-color: #b3ffb3;
+}
+
+section.completed h2::before {
+    content: "✓ ";
+    /* Dấu kiểm */
+    color: green;
+}
+
+/* Đánh dấu các phần đang học */
+section.learning {
+    background-color: #ffffe0;
+    /* Màu vàng nhạt */
+    border-color: #ffff80;
+}
+
+section.learning h2::before {
+    content: "… ";
+    /* Dấu ba chấm */
+    color: orange;
+}
