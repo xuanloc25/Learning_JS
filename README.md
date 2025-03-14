@@ -32,7 +32,7 @@ Tìm hiểu thêm về RISC-V:
 *   **Three.js:** Thư viện JavaScript để tạo và hiển thị đồ họa 3D trong trình duyệt.
 *   **Styled Components:** Thư viện CSS-in-JS để viết CSS trực tiếp trong các component JavaScript.
 *   (Các thư viện khác: ví dụ, thư viện xử lý state, thư viện hỗ trợ tính toán...)
-*   **GitHub Pages:** Nền tảng lưu trữ và triển khai trang web. (Có thể thay đổi nếu bạn sử dụng nền tảng khác)
+*   **GitHub Pages:** Nền tảng lưu trữ và triển khai trang web. (Có thể thay đổi nếu không phù hợp trong quá trình phát triển)
 
 ## Tiến độ
 
