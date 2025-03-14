@@ -1,61 +1,351 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Báo Cáo Tiến Độ Học JavaScript</title>
+    <title>JavaScript Tutorial Progress</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; background-color: #2e7d32; color: #ffffff; }
-        h1 { text-align: center; }
-        .container { max-width: 800px; margin: auto; background-color: #ffffff; color: #000000; padding: 20px; border-radius: 10px; }
-        ul { list-style-type: none; padding: 0; }
-        li { cursor: pointer; padding: 8px; border-radius: 5px; }
-        li:hover { background-color: #e0e0e0; }
-        .submenu { display: none; padding-left: 20px; }
-        .content { display: none; padding: 10px; border-top: 1px solid #ccc; }
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Để tránh float gây tràn */
+        }
+
+        nav {
+            width: 250px;
+            background-color: #f0f0f0;
+            padding: 1rem;
+            box-sizing: border-box; /* Quan trọng để padding không làm tăng chiều rộng */
+        }
+
+        main {
+            flex: 1;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        /* Style cho menu */
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-list a {
+            display: block;
+            padding: 0.5rem;
+            text-decoration: none;
+            color: #333;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+
+        .nav-list a:hover {
+            background-color: #ddd;
+        }
+
+        /* Style cho submenu (ẩn ban đầu) */
+        .sub-menu {
+            list-style: none;
+            padding-left: 1rem;
+            margin: 0;
+            display: none; /* Ẩn submenu mặc định */
+            background-color: #eee;
+            border-radius: 3px;
+            margin-top: 0.5rem;
+        }
+
+        .sub-menu li {
+            margin-bottom: 0.25rem;
+        }
+
+        .sub-menu a {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Style cho các section */
+        section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Đánh dấu các phần đã hoàn thành */
+        section.completed {
+            background-color: #e6ffe6; /* Màu xanh lá cây nhạt */
+            border-color: #b3ffb3;
+        }
+
+        section.completed h2::before {
+            content: "✓ "; /* Dấu kiểm */
+            color: green;
+        }
+
+        /* Đánh dấu các phần đang học */
+        section.learning {
+            background-color: #ffffe0; /* Màu vàng nhạt */
+            border-color: #ffff80;
+        }
+
+        section.learning h2::before {
+            content: "… "; /* Dấu ba chấm */
+            color: orange;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <h1>JavaScript Learning Progress</h1>
+        <p>Following the W3Schools JavaScript Tutorial</p>
+    </header>
+
     <div class="container">
-        <h1>BÁO CÁO TIẾN ĐỘ HỌC JAVASCRIPT</h1>
-        <h2>Mục lục</h2>
-        <ul>
-            <li onclick="toggleSubmenu('js-basics')">JS Cơ Bản
-                <ul id="js-basics" class="submenu">
-                    <li onclick="showContent('intro')">Giới Thiệu</li>
-                    <li onclick="showContent('variables')">Biến và Kiểu dữ liệu</li>
-                    <li onclick="showContent('functions')">Hàm</li>
-                    <li onclick="showContent('operators')">Toán tử</li>
-                    <li onclick="showContent('conditions')">Câu lệnh điều kiện</li>
-                    <li onclick="showContent('loops')">Vòng lặp</li>
-                </ul>
-            </li>
-            <li onclick="toggleSubmenu('js-dom')">JS HTML DOM
-                <ul id="js-dom" class="submenu">
-                    <li onclick="showContent('dom-intro')">DOM Giới thiệu</li>
-                    <li onclick="showContent('dom-methods')">DOM Methods</li>
-                </ul>
-            </li>
-        </ul>
-        
-        <div id="intro" class="content"><h3>Giới Thiệu JavaScript</h3><p>JavaScript là một ngôn ngữ lập trình phổ biến được sử dụng để tạo các trang web tương tác.</p></div>
-        <div id="variables" class="content"><h3>Biến và Kiểu Dữ Liệu</h3><p>Trong JavaScript, bạn có thể khai báo biến bằng var, let hoặc const.</p><pre><code>let x = 10; // Biến x có giá trị 10</code></pre></div>
-        <div id="functions" class="content"><h3>Hàm</h3><p>Hàm giúp bạn tổ chức mã lệnh và tái sử dụng.</p><pre><code>function sayHello() {
-    console.log("Xin chào!");
-}</code></pre></div>
-        <div id="operators" class="content"><h3>Toán tử</h3><p>Toán tử dùng để thực hiện các phép toán trên giá trị và biến.</p><pre><code>let a = 5 + 3; // Tổng là 8</code></pre></div>
-        <div id="conditions" class="content"><h3>Câu lệnh điều kiện</h3><p>Sử dụng if-else để kiểm tra điều kiện.</p><pre><code>if (x > 0) {
-    console.log("Số dương");
-} else {
-    console.log("Số không dương");
-}</code></pre></div>
-        <div id="loops" class="content"><h3>Vòng lặp</h3><p>Vòng lặp giúp thực thi mã nhiều lần.</p><pre><code>for (let i = 0; i < 5; i++) {
-    console.log(i);
-}</code></pre></div>
-        <div id="dom-intro" class="content"><h3>DOM Giới thiệu</h3><p>DOM giúp JavaScript tương tác với nội dung HTML.</p></div>
-        <div id="dom-methods" class="content"><h3>DOM Methods</h3><p>DOM có nhiều phương thức để truy cập và thay đổi HTML.</p></div>
+        <nav id="main-nav">
+            <ul class="nav-list">
+                <li>
+                    <a href="#">JS Tutorial</a>
+                    <ul class="sub-menu" id="js-tutorial-sub">
+                        <li><a href="#js-home">JS HOME</a></li>
+                        <li><a href="#js-introduction">JS Introduction</a></li>
+                        <li><a href="#js-where-to">JS Where To</a></li>
+                        <li><a href="#js-output">JS Output</a></li>
+                        <li><a href="#js-syntax">JS Syntax</a></li>
+                        <li><a href="#js-statements">JS Statements</a></li>
+                        <li><a href="#js-comments">JS Comments</a></li>
+                        <li><a href="#js-variables">JS Variables</a></li>
+                        <li><a href="#js-operators">JS Operators</a></li>
+                        <li><a href="#js-arithmetic">JS Arithmetic</a></li>
+                        <li><a href="#js-assignment">JS Assignment</a></li>
+                        <li><a href="#js-datatypes">JS Data Types</a></li>
+                        <li><a href="#js-functions">JS Functions</a></li>
+                        <li><a href="#js-objects">JS Objects</a></li>
+                        <li><a href="#js-events">JS Events</a></li>
+                        <li><a href="#js-strings">JS Strings</a></li>
+                        <li><a href="#js-string-methods">JS String Methods</a></li>
+                        <li><a href="#js-numbers">JS Numbers</a></li>
+                        <li><a href="#js-number-methods">JS Number Methods</a></li>
+                        <li><a href="#js-arrays">JS Arrays</a></li>
+                        <li><a href="#js-array-methods">JS Array Methods</a></li>
+                        <li><a href="#js-booleans">JS Booleans</a></li>
+                        <li><a href="#js-comparisons">JS Comparisons</a></li>
+                        <li><a href="#js-conditions">JS Conditions</a></li>
+                        <li><a href="#js-switch">JS Switch</a></li>
+                        <li><a href="#js-loop-for">JS Loop For</a></li>
+                        <li><a href="#js-loop-while">JS Loop While</a></li>
+                        <li><a href="#js-break">JS Break</a></li>
+                        <li><a href="#js-typeof">JS Type Of</a></li>
+                        <li><a href="#js-bitwise">JS Bitwise</a></li>
+                        <li><a href="#js-regexp">JS RegExp</a></li>
+                        <li><a href="#js-errors">JS Errors</a></li>
+                        <li><a href="#js-scope">JS Scope</a></li>
+                        <li><a href="#js-hoisting">JS Hoisting</a></li>
+                        <li><a href="#js-strict">JS Strict</a></li>
+                        <li><a href="#js-this">JS This</a></li>
+                        <li><a href="#js-let">JS Let</a></li>
+                        <li><a href="#js-const">JS Const</a></li>
+                        <li><a href="#js-arrow-function">JS Arrow Function</a></li>
+                        <li><a href="#js-classes">JS Classes</a></li>
+                        <li><a href="#js-json">JS JSON</a></li>
+                        <li><a href="#js-date">JS Date</a></li>
+                        <li><a href="#js-date-formats">JS Date Formats</a></li>
+                        <li><a href="#js-date-methods">JS Date Methods</a></li>
+                        <li><a href="#js-math">JS Math</a></li>
+                        <li><a href="#js-random">JS Random</a></li>
+                        <li><a href="#js-iterations">JS Iterations</a></li>
+                        <li><a href="#js-sets">JS Sets</a></li>
+                        <li><a href="#js-maps">JS Maps</a></li>
+                        <li><a href="#js-typeof">JS Typeof</a></li>
+                        <li><a href="#js-get">JS Get</a></li>
+                        <li><a href="#js-set">JS Set</a></li>
+                        <li><a href="#js-function-definition">JS Function Definition</a></li>
+                        <li><a href="#js-function-parameters">JS Function Parameters</a></li>
+                        <li><a href="#js-function-invocation">JS Function Invocation</a></li>
+                        <li><a href="#js-function-call">JS Function Call</a></li>
+                        <li><a href="#js-function-apply">JS Function Apply</a></li>
+                        <li><a href="#js-function-bind">JS Function Bind</a></li>
+                        <li><a href="#js-closures">JS Closures</a></li>
+                        <li><a href="#js-new-function">JS New Function</a></li>
+                        <li><a href="#js-function-recap">JS Function Recap</a></li>
+                        <li><a href="#js-array-const">JS Array Const</a></li>
+                        <li><a href="#js-array-iteration">JS Array Iteration</a></li>
+                        <li><a href="#js-array-sort">JS Array Sort</a></li>
+                        <li><a href="#js-array-const">JS Array Const</a></li>
+                        <li><a href="#js-array-bitwise">JS Array Bitwise</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">JS HTML DOM</a>
+                    <ul class="sub-menu" id="js-dom-sub">
+                        <li><a href="#js-dom-introduction">JS DOM Introduction</a></li>
+                        <li><a href="#js-dom-methods">JS DOM Methods</a></li>
+                        <li><a href="#js-dom-document">JS DOM Document</a></li>
+                        <li><a href="#js-dom-elements">JS DOM Elements</a></li>
+                        <li><a href="#js-dom-html">JS DOM HTML</a></li>
+                        <li><a href="#js-dom-css">JS DOM CSS</a></li>
+                        <li><a href="#js-dom-animations">JS DOM Animations</a></li>
+                        <li><a href="#js-dom-events">JS DOM Events</a></li>
+                        <li><a href="#js-dom-event-listeners">JS DOM Event Listeners</a></li>
+                        <li><a href="#js-dom-navigation">JS DOM Navigation</a></li>
+                        <li><a href="#js-dom-nodes">JS DOM Nodes</a></li>
+                        <li><a href="#js-dom-nodelist">JS DOM Nodelist</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">JS Browser BOM</a>
+                    <ul class="sub-menu" id="js-bom-sub">
+                         <li><a href="#js-bom-introduction">JS BOM Introduction</a></li>
+                         <li><a href="#js-bom-window">JS BOM Window</a></li>
+                         <li><a href="#js-bom-screen">JS BOM Screen</a></li>
+                         <li><a href="#js-bom-location">JS BOM Location</a></li>
+                         <li><a href="#js-bom-history">JS BOM History</a></li>
+                         <li><a href="#js-bom-navigator">JS BOM Navigator</a></li>
+                         <li><a href="#js-bom-popup-alert">JS BOM Popup Alert</a></li>
+                         <li><a href="#js-bom-timing">JS BOM Timing</a></li>
+                         <li><a href="#js-bom-cookies">JS BOM Cookies</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">JS Reference</a>
+                    <ul class="sub-menu" id="js-ref-sub">
+                         <li><a href="#js-reference-overview">JS Reference Overview</a></li>
+                         <li><a href="#js-reference-properties">JS Reference Properties</a></li>
+                         <li><a href="#js-reference-methods">JS Reference Methods</a></li>
+                         <li><a href="#js-reference-objects">JS Reference Objects</a></li>
+                         <li><a href="#js-reference-events">JS Reference Events</a></li>
+                         <li><a href="#js-reference-html-dom">JS Reference HTML DOM</a></li>
+                    </ul>
+                </li>
+                 <li>
+                    <a href="#">JS Examples</a>
+                    <ul class="sub-menu" id="js-ex-sub">
+                         <li><a href="#js-examples">JS Examples</a></li>
+                         <li><a href="#js-examples-home">JS Examples HOME</a></li>
+                         <li><a href="#js-examples-syntax">JS Examples Syntax</a></li>
+                         <li><a href="#js-examples-operators">JS Examples Operators</a></li>
+                         <li><a href="#js-examples-strings">JS Examples Strings</a></li>
+                         <li><a href="#js-examples-dates">JS Examples Dates</a></li>
+                         <li><a href="#js-examples-arrays">JS Examples Arrays</a></li>
+                         <li><a href="#js-examples-booleans">JS Examples Booleans</a></li>
+                         <li><a href="#js-examples-math">JS Examples Math</a></li>
+                         <li><a href="#js-examples-regexp">JS Examples RegExp</a></li>
+                         <li><a href="#js-examples-dom">JS Examples DOM</a></li>
+                         <li><a href="#js-examples-browser">JS Examples Browser</a></li>
+                    </ul>
+                </li>
+                 <li>
+                    <a href="#">JS Exercises</a>
+                    <ul class="sub-menu" id="js-exer-sub">
+                         <li><a href="#js-exercises-home">JS Exercises HOME</a></li>
+                         <li><a href="#js-exercises-javascript">JS Exercises JavaScript</a></li>
+                         <li><a href="#js-exercises-dom">JS Exercises DOM</a></li>
+                         <li><a href="#js-exercises-browser">JS Exercises Browser</a></li>
+                         <li><a href="#js-exercises-jquery">JS Exercises JQuery</a></li>
+                         <li><a href="#js-exercises-w3css">JS Exercises W3 CSS</a></li>
+                         <li><a href="#js-exercises-bootstrap">JS Exercises Bootstrap</a></li>
+                         <li><a href="#js-exercises-programming">JS Exercises Programming</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">JS Quiz</a>
+                    <ul class="sub-menu" id="js-quiz-sub">
+                         <li><a href="#js-quiz">JS Quiz</a></li>
+                         <li><a href="#js-quiz-javascript">JS Quiz JavaScript</a></li>
+                         <li><a href="#js-quiz-dom">JS Quiz DOM</a></li>
+                         <li><a href="#js-quiz-browser">JS Quiz Browser</a></li>
+                         <li><a href="#js-quiz-jquery">JS Quiz JQuery</a></li>
+                         <li><a href="#js-quiz-w3css">JS Quiz W3 CSS</a></li>
+                         <li><a href="#js-quiz-bootstrap">JS Quiz Bootstrap</a></li>
+                         <li><a href="#js-quiz-programming">JS Quiz Programming</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- JS Tutorial Sections (Đã học) -->
+            <section id="js-home" class="completed">
+                <h2>JS HOME</h2>
+                <p>Welcome to the JavaScript tutorial! (Completed)</p>
+            </section>
+
+            <section id="js-introduction" class="completed">
+                <h2>JS Introduction</h2>
+                <p>JavaScript adds interactivity to websites. (Completed)</p>
+            </section>
+
+            <!-- ... Thêm các phần khác trong JS Tutorial, đánh dấu class="completed" cho đến JS Events -->
+
+            <!-- JS HTML DOM Sections (Đã học xong) -->
+            <section id="js-dom-introduction" class="completed">
+                <h2>JS DOM Introduction</h2>
+                <p>The DOM is a programming interface for HTML and XML documents. (Completed)</p>
+            </section>
+
+            <section id="js-dom-methods" class="completed">
+                <h2>JS DOM Methods</h2>
+                <p>DOM methods allow you to manipulate HTML elements. (Completed)</p>
+            </section>
+
+            <!-- ... Thêm các phần khác trong JS HTML DOM, đánh dấu class="completed" -->
+
+            <!-- JS Browser BOM Sections (Đang tìm hiểu) -->
+            <section id="js-bom-introduction" class="learning">
+                <h2>JS BOM Introduction</h2>
+                <p>The BOM allows JavaScript to "talk to" the browser. (Currently Learning)</p>
+            </section>
+                        <section id="js-reference-overview" class="learning">
+                <h2>JS Reference Overview</h2>
+                <p>The JS Reference Overview allows JavaScript to "talk to" the browser. (Currently Learning)</p>
+            </section>
+                        <section id="js-exercises-home" class="learning">
+                <h2>JS Exercises HOME</h2>
+                <p>The JS Exercises HOME allows JavaScript to "talk to" the browser. (Currently Learning)</p>
+            </section>
+            <section id="js-examples" class="learning">
+                <h2>JS Examples</h2>
+                <p>The JS Examples Overview allows JavaScript to "talk to" the browser. (Currently Learning)</p>
+            </section>
+            <section id="js-quiz" class="learning">
+                <h2>JS Quiz</h2>
+                <p>The JS Quiz Overview allows JavaScript to "talk to" the browser. (Currently Learning)</p>
+            </section>
+            <!-- ... Thêm các phần khác trong JS Browser BOM, KHÔNG đánh dấu class="completed" -->
+
+        </main>
     </div>
-    
+
+    <footer>
+        <p>&copy; [Tên của bạn] - [Ngày hiện tại]</p>
+    </footer>
+
     <script src="javascript.js"></script>
 </body>
 </html>
