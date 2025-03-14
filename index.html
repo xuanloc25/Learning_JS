@@ -25,6 +25,9 @@
                     <li onclick="showContent('intro')">Giới Thiệu</li>
                     <li onclick="showContent('variables')">Biến và Kiểu dữ liệu</li>
                     <li onclick="showContent('functions')">Hàm</li>
+                    <li onclick="showContent('operators')">Toán tử</li>
+                    <li onclick="showContent('conditions')">Câu lệnh điều kiện</li>
+                    <li onclick="showContent('loops')">Vòng lặp</li>
                 </ul>
             </li>
             <li onclick="toggleSubmenu('js-dom')">JS HTML DOM
@@ -35,13 +38,24 @@
             </li>
         </ul>
         
-        <div id="intro" class="content"><h3>Giới Thiệu JavaScript</h3><p>JavaScript là một ngôn ngữ lập trình cho web.</p></div>
-        <div id="variables" class="content"><h3>Biến và Kiểu Dữ Liệu</h3><p>Trong JavaScript, bạn có thể khai báo biến bằng var, let hoặc const.</p></div>
-        <div id="functions" class="content"><h3>Hàm</h3><p>Hàm giúp bạn tổ chức mã lệnh và tái sử dụng.</p></div>
+        <div id="intro" class="content"><h3>Giới Thiệu JavaScript</h3><p>JavaScript là một ngôn ngữ lập trình phổ biến được sử dụng để tạo các trang web tương tác.</p></div>
+        <div id="variables" class="content"><h3>Biến và Kiểu Dữ Liệu</h3><p>Trong JavaScript, bạn có thể khai báo biến bằng var, let hoặc const.</p><pre><code>let x = 10; // Biến x có giá trị 10</code></pre></div>
+        <div id="functions" class="content"><h3>Hàm</h3><p>Hàm giúp bạn tổ chức mã lệnh và tái sử dụng.</p><pre><code>function sayHello() {
+    console.log("Xin chào!");
+}</code></pre></div>
+        <div id="operators" class="content"><h3>Toán tử</h3><p>Toán tử dùng để thực hiện các phép toán trên giá trị và biến.</p><pre><code>let a = 5 + 3; // Tổng là 8</code></pre></div>
+        <div id="conditions" class="content"><h3>Câu lệnh điều kiện</h3><p>Sử dụng if-else để kiểm tra điều kiện.</p><pre><code>if (x > 0) {
+    console.log("Số dương");
+} else {
+    console.log("Số không dương");
+}</code></pre></div>
+        <div id="loops" class="content"><h3>Vòng lặp</h3><p>Vòng lặp giúp thực thi mã nhiều lần.</p><pre><code>for (let i = 0; i < 5; i++) {
+    console.log(i);
+}</code></pre></div>
         <div id="dom-intro" class="content"><h3>DOM Giới thiệu</h3><p>DOM giúp JavaScript tương tác với nội dung HTML.</p></div>
         <div id="dom-methods" class="content"><h3>DOM Methods</h3><p>DOM có nhiều phương thức để truy cập và thay đổi HTML.</p></div>
     </div>
     
-    <script src="javascript.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
