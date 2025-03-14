@@ -2,7 +2,7 @@
 
 ## Giới thiệu
 
-Chào mừng đến với repository dự án "Thiết kế website mô phỏng bộ vi xử lý RISC-V"! Dự án này là một phần trong quá trình học tập và phát triển kỹ năng của chúng tôi trên con đường trở thành kỹ sư thiết kế vi mạch. Mục tiêu của chúng tôi là tạo ra một trang web trực quan, cho phép người dùng tương tác và hiểu rõ hơn về kiến trúc và hoạt động của bộ vi xử lý RISC-V.
+Chào mừng đến với repository dự án "Thiết kế website mô phỏng bộ vi xử lý RISC-V"! Đồ án này là một phần trong quá trình học tập và phát triển kỹ năng của nhóm mình trong những năm cuối tại trường. Mục tiêu của chúng tôi là tạo ra một trang web trực quan, cho phép người dùng tương tác và hiểu rõ hơn về kiến trúc và hoạt động của bộ vi xử lý RISC-V.
 Hiện tại repo này là là quá trình học về JavaScript của nhóm mình.
 
 ## Mục tiêu dự án
